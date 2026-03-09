@@ -35,3 +35,30 @@ uvicorn messageboard.main:app --host 127.0.0.1 --port 8000
 # oder mit uv
 uv run uvicorn messageboard.main:app --host 127.0.0.1 --port 8000
 ```
+
+## Docker
+
+Das Docker-Image wird bei jedem Push auf `main` automatisch gebaut und in der
+GitHub Container Registry veröffentlicht.
+
+Image ziehen:
+```shell
+docker pull ghcr.io/fschmalzel/rest-apis-fortbildung:latest
+```
+
+Container starten:
+```shell
+docker run -p 8000:8000 \
+  -e DOMAIN=http://localhost:8000 \
+  ghcr.io/fschmalzel/rest-apis-fortbildung:latest
+```
+
+Beim Start werden die Quarto-Unterlagen automatisch gerendert und der Server
+anschließend auf Port 8000 gestartet.
+
+### Umgebungsvariablen
+
+| Variable | Standard                | Beschreibung                                                                            |
+|----------|-------------------------|-----------------------------------------------------------------------------------------|
+| `DOMAIN` | `http://localhost:8000` | Vollständige URL des Servers (wird in den Unterlagen und der OpenAPI-Spec eingesetzt)   |
+| `PORT`   | `8000`                  | Port, auf dem der Server lauscht                                                        |
