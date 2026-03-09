@@ -88,7 +88,7 @@ sobald der Vertrag (die Spec) feststeht.
 }
 ```
 
-**In Swagger UI**: → <https://rest.fschmalzel.de/openapi/> 
+**In Swagger UI**: → <DOMAIN_PLACEHOLDER/openapi/> 
 
 ::: {.callout-tip}
 Das **Schloss-Symbol** zeigt: dieser Endpunkt braucht Authentifizierung.
@@ -167,9 +167,9 @@ nur mit einer grafischen Oberfläche.
 
 ## Übung 5 - OpenAPI
 
-SwaggerUI: <https://rest.fschmalzel.de/openapi/> 
+SwaggerUI: <DOMAIN_PLACEHOLDER/openapi/> 
 
-OpenAPI JSON: <https://rest.fschmalzel.de/openapi/openapi.json>
+OpenAPI JSON: <DOMAIN_PLACEHOLDER/openapi/openapi.json>
 
 **Aufgabe:** Nur mit der API-Dokumentation (kein Spickzettel!):
 

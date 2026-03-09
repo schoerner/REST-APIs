@@ -20,7 +20,7 @@ Statt Endpunkte manuell einzutippen: Spec einmal importieren — alle Endpunkte 
 
 1. Hoppscotch öffnen: <https://hoppscotch.io>
 2. **Sammlungen** → **Importieren** → **OpenAPI**
-3. URL einfügen: `https://rest.fschmalzel.de/openapi/openapi.json`
+3. URL einfügen: `DOMAIN_PLACEHOLDER/openapi/openapi.json`
 
 ::: {.callout-note}
 Hoppscotch liest dieselbe `openapi.json`, die wir gerade analysiert haben.
@@ -32,7 +32,7 @@ Hoppscotch liest dieselbe `openapi.json`, die wir gerade analysiert haben.
 
 Hoppscotch: <https://hoppscotch.io>
 
-OpenAPI-Spec: `https://rest.fschmalzel.de/openapi/openapi.json`
+OpenAPI-Spec: `DOMAIN_PLACEHOLDER/openapi/openapi.json`
 
 **Aufgaben:**
 

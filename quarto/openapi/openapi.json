@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://rest.fschmalzel.de",
+      "url": "DOMAIN_PLACEHOLDER",
       "description": "Schulungsserver"
     },
     {

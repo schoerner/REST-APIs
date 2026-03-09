@@ -24,6 +24,12 @@ jobs:
         with:
           tinytex: true
 
+      - name: Substitute domain for GitHub Pages
+        run: |
+          find quarto -name "*.qmd" -o -name "*.json" | xargs sed -i \
+            -e "s|DOMAIN_PLACEHOLDER|https://rest.fschmalzel.de|g" \
+            -e "s|DOMAIN_HOST_PLACEHOLDER|rest.fschmalzel.de|g"
+
       - name: Render site
         run: quarto render quarto/
 

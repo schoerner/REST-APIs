@@ -73,14 +73,14 @@ GET /api/v1/messages/1 →  200 OK
 ## Demo - Caching am MessageBoard
 1. Request mit verbose — ETag im Response suchen
 ```sh
-curl -v https://rest.fschmalzel.de/api/v1/public/messages/1
+curl -v DOMAIN_PLACEHOLDER/api/v1/public/messages/1
 ```
 
 
 2. Bedingter Request mit If-None-Match
 ```sh
 curl -v -H "If-None-Match: \"EUER_ETAG\"" \
- https://rest.fschmalzel.de/api/v1/public/messages/1
+ DOMAIN_PLACEHOLDER/api/v1/public/messages/1
 ```
 
 ::: {.callout-tip}

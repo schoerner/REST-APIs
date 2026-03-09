@@ -297,28 +297,28 @@ GET /api/v1/messages?token=eyJhbGc...
 - **Bearer Header** ist der Standard für API-Anfragen
 
 ## Übung 4 {.smaller}
-Basis-URL: `https://rest.fschmalzel.de/api/v1/messages` **(Ohne `public/`)**
+Basis-URL: `DOMAIN_PLACEHOLDER/api/v1/messages` **(Ohne `public/`)**
 
-Message Board ansehen: <https://rest.fschmalzel.de/board>
+Message Board ansehen: <DOMAIN_PLACEHOLDER/board>
 
 **Aufgaben:**
 
 1. Versucht Nachricht 1 (von alice) zu löschen, was passiert?
 2. Registriert euch:
 ```sh
-curl https://rest.fschmalzel.de/api/v1/auth/register \
+curl DOMAIN_PLACEHOLDER/api/v1/auth/register \
   -X POST \
   --json '{"username": "EUER_NAME", "password": "abc123"}'
 ```
 3. Loggt euch ein — was bekommt ihr zurück?
 ```sh
-curl https://rest.fschmalzel.de/api/v1/auth/login \
+curl DOMAIN_PLACEHOLDER/api/v1/auth/login \
   -X POST \
   --json '{"username": "EUER_NAME", "password": "abc123"}'
 ```
 4. Kopiert euren Access Token und schreibt eine Nachricht:
 ```sh
-curl https://rest.fschmalzel.de/api/v1/messages \
+curl DOMAIN_PLACEHOLDER/api/v1/messages \
   -X POST \
   -H "Authorization: Bearer EUER_TOKEN" \
   --json '{"title": "TITEL", "content": "NACHRICHT"}'
