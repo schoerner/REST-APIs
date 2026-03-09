@@ -1,0 +1,29 @@
+services:
+  app:
+    image: ghcr.io/fschmalzel/rest-apis-fortbildung:latest
+    restart: unless-stopped
+    environment:
+      - DOMAIN=${DOMAIN}
+      - PORT=${PORT:-8000}
+      - RESET_PASSWORD=${RESET_PASSWORD:-}
+    # Port-Binding optional: nur nötig, wenn der Server zusätzlich
+    # direkt über localhost erreichbar sein soll.
+    # ports:
+    #   - "8000:8000"
+    networks:
+      - internal
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    networks:
+      - internal
+    depends_on:
+      - app
+
+networks:
+  internal:
+    driver: bridge
