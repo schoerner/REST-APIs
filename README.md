@@ -20,6 +20,7 @@ GitHub Container Registry veröffentlicht.
 
 ```shell
 docker run -p 8000:8000 \
+  -e PORT=8000 \
   -e DOMAIN=http://localhost:8000 \
   ghcr.io/fschmalzel/rest-apis-fortbildung:latest
 ```
@@ -47,7 +48,7 @@ Umgebungsvariable gesetzt werden muss.
 # Lokal
 export RESET_PASSWORD=abc123
 # oder Docker
-docker run -p 8000:8000 -e RESET_PASSWORD=abc123 ghcr.io/fschmalzel/rest-apis-fortbildung:latest
+docker run -p 8000:8000 -e PORT=8000 -e DOMAIN=http://localhost:8000 -e RESET_PASSWORD=abc123 ghcr.io/fschmalzel/rest-apis-fortbildung:latest
 ```
 
 ```shell
