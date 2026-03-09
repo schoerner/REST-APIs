@@ -268,9 +268,9 @@ graph LR
 
 
 ## Übung 3
-Basis-URL: `https://rest.fschmalzel.de/api/v1/public/messages`
+Basis-URL: `DOMAIN_PLACEHOLDER/api/v1/public/messages`
 
-Message Board ansehen: <https://rest.fschmalzel.de/board/public>
+Message Board ansehen: <DOMAIN_PLACEHOLDER/board/public>
 
 **Aufgaben:**
 

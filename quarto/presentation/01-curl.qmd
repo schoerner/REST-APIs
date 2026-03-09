@@ -38,7 +38,7 @@ $ curl https://restcountries.com/v3.1/name/germany?fields=capital
 
 ```bash
 curl \
-  https://rest.fschmalzel.de/api/v1/public/messages \
+  DOMAIN_PLACEHOLDER/api/v1/public/messages \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"author": "Max", "title": "foobar", "content": "Hello World!"}'
@@ -46,19 +46,19 @@ curl \
 
 ```bash
 curl \
-  https://rest.fschmalzel.de/api/v1/public/messages \
+  DOMAIN_PLACEHOLDER/api/v1/public/messages \
   -X POST \
   --json '{"author": "Max", "title": "foobar",  "content": "Hello World!"}'
 ```
 
 ## Übung 2 – POST-Requests
-Basis-URL: `https://rest.fschmalzel.de/api/v1/public/messages`
-Message Board ansehen: <https://rest.fschmalzel.de/board/public>
+Basis-URL: `DOMAIN_PLACEHOLDER/api/v1/public/messages`
+Message Board ansehen: <DOMAIN_PLACEHOLDER/board/public>
 **Aufgaben:**
 
 1. Ruft alle Nachrichten ab (GET) – was fällt am Response auf? 
 2. Schickt eine Nachricht ans Board (POST mit --json)
-`curl https://rest.fschmalzel.de/api/v1/public/messages -X POST --json '{"author": "NAME", "title": "TITEL", "content": "NACHRICHT"}'`
+`curl DOMAIN_PLACEHOLDER/api/v1/public/messages -X POST --json '{"author": "NAME", "title": "TITEL", "content": "NACHRICHT"}'`
 3. Versucht, Fehler zu provozieren:
   - Was passiert ohne Body? 
   - Was passiert mit kaputtem JSON? 

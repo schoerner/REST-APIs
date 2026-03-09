@@ -20,10 +20,13 @@ from messageboard.token import ACCESS_TOKEN_EXPIRE_MINUTES, JWTHandler
 # App
 # ============================================================================
 
+_DOMAIN = os.environ.get("DOMAIN", "http://localhost:8000")
+
 app = FastAPI(
     title="MessageBoard API",
     description="REST-API Schulungsserver — ein einfaches MessageBoard mit JWT-Authentifizierung",
     version=__version__,
+    servers=[{"url": _DOMAIN, "description": "Server"}],
 )
 
 app.add_middleware(

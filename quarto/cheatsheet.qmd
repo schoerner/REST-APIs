@@ -100,7 +100,7 @@ OpenAPI-Spec:        https://spec.openapis.org/oas/latest.html
 **Beispiel: POST mit Authentifizierung**
 
 ```bash
-curl https://rest.fschmalzel.de/api/v1/messages \
+curl DOMAIN_PLACEHOLDER/api/v1/messages \
   -X POST \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1..." \
   --json '{"title": "Hallo", "content": "Welt"}'
@@ -129,7 +129,7 @@ curl https://rest.fschmalzel.de/api/v1/messages \
 
 ```http
 POST /api/v1/messages HTTP/1.1
-Host: rest.fschmalzel.de
+Host: DOMAIN_HOST_PLACEHOLDER
 Content-Type: application/json
 Authorization: Bearer eyJhbGci...
 
