@@ -10,14 +10,15 @@ ARG QUARTO_VERSION
 
 # System dependencies (Quarto needs curl/wget + gdebi/dpkg; also needs libglib for deno)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        wget \
-        ca-certificates \
-        libglib2.0-0 \
-    && wget -q "https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.deb" \
-    && dpkg -i "quarto-${QUARTO_VERSION}-linux-amd64.deb" \
-    && rm "quarto-${QUARTO_VERSION}-linux-amd64.deb" \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* \
-    && quarto install tinytex --no-prompt
+  wget \
+  ca-certificates \
+  libglib2.0-0 \
+  libfontconfig1 \
+  && wget -q "https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.deb" \
+  && dpkg -i "quarto-${QUARTO_VERSION}-linux-amd64.deb" \
+  && rm "quarto-${QUARTO_VERSION}-linux-amd64.deb" \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* \
+  && quarto install tinytex --no-prompt
 
 # Copy uv
 COPY --from=uv-bin /uv /usr/local/bin/uv

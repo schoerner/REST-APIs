@@ -1,43 +1,42 @@
-name: Build and Push Docker Image
+name: CI/CD Message Board REST-APIs
 
 on:
   push:
-    branches: [main, master]
+    branches: ["main"]
   workflow_dispatch:
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/rest-apis
 
 jobs:
-  build:
+  build-push:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Repository auschecken
+        uses: actions/checkout@v5
 
-      - name: Log in to GitHub Container Registry
+      - name: Bei GHCR anmelden
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract Docker metadata
+      - name: Docker-Metadaten erzeugen
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}
+          images: ${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=branch
-            type=sha,prefix={{branch}}-
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest
+            type=sha
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+      - name: Docker-Image bauen und pushen
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true

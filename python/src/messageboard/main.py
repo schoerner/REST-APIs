@@ -21,6 +21,7 @@ from messageboard.token import ACCESS_TOKEN_EXPIRE_MINUTES, JWTHandler
 # ============================================================================
 
 _DOMAIN = os.environ.get("DOMAIN", "http://localhost:8000")
+_MAX_MESSAGES = int(os.environ.get("MAX_MESSAGES", "100"))
 
 app = FastAPI(
     title="MessageBoard API",
@@ -41,8 +42,8 @@ app.add_middleware(
 _SECRET = os.environ.get("SECRET_KEY", "change-me-in-production")
 auth = InMemoryAuthentication(secret=_SECRET)
 jwt_handler = JWTHandler(secret=_SECRET)
-public_board = InMemoryMessageDB(check_author=False)   # /api/v1/public/messages
-auth_board   = InMemoryMessageDB(check_author=True)    # /api/v1/messages
+public_board = InMemoryMessageDB(check_author=False, max_messages=_MAX_MESSAGES)   # /api/v1/public/messages
+auth_board   = InMemoryMessageDB(check_author=True, max_messages=_MAX_MESSAGES)    # /api/v1/messages
 
 api = APIRouter(prefix="/api/v1")
 
