@@ -25,3 +25,8 @@ format:
     theme: cosmo
     toc: true
     toc-depth: 2
+    include-in-header:
+      - includes/robots-noindex.html
+  revealjs:
+    include-in-header:
+      - ../includes/robots-noindex.html
